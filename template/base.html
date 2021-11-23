@@ -60,66 +60,38 @@
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
-      </button>     
-      <a
-            href="{{url_for('main.mapping')}}"
-            class="btn btn-outline-info"
-            role="button"
-            style="float: right" 
-            style="margin-left: 50px"          
-          >
-            Back
-          </a>  
-
-</div>
+      </button>    
+      </div>
     </nav>
-    {% block content %} 
+    {% block content %}
     
-    <div>
+     <div>
    
 
     <center>
     <table>
-    
+    <tr>
+    <form action="{{url_for('main.upload')}}" enctype="multipart/form-data" method="POST"> 
+        <input type="file"   name="fileupload" ><br><br>
+        <input type="submit" value="Upload a file"><br><br>
+        
+        </form>
+        </tr>
         <tr>
-        <td>
         <a
-            href="{{url_for('main.attachment_upload',file_id=file_id,attachment='photo')}}"
+            href="{{url_for('main.mapping')}}"
             class="btn btn-outline-danger"
             role="button"
-            
           >
-            Photo
+            Next
           </a>
-          </td>
-          <td>
-        <a
-            href="{{url_for('main.attachment_upload',file_id=file_id,attachment='document')}}"
-            class="btn btn-outline-danger"
-            role="button"
-            id="document"
-          >
-            Document
-          </a>
-          </td>
         </tr>
     </table>
-<a
-            href="{{url_for('main.automation',file_id=file_id)}}"
-            class="btn btn-outline-danger"
-            role="button"
-            
-          >
-            Start
-          </a>
-
-
     </center>
     </div>
     
     
     
-    
-    {% endblock %}
+     {% endblock %}
   </body>
 </html>

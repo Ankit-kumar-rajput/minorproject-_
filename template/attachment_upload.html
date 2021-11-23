@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block head %} {{ super() }}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename= 'extended_beauty.css') }}"
+/>
+{% endblock %} {% block content %}
+<center>
+<a
+            href="{{url_for('main.next',file_id=file_id)}}"
+            class="btn btn-outline-info"
+            role="button"
+            style="float: center" 
+                    
+          >
+            Back
+          </a> 
+<h1>
+  Select File
+</h1>
+
+
+{% with messages = get_flashed_messages() %} {% if messages %}
+<div class="flashes">
+{{ messages[0] }}
+</div>
+{% endif %} {% endwith %}
+
+</center>
+
+
+ <div>
+    
+
+    <center>
+    <table>
+    <tr>
+    <form action="{{url_for('main.save_attachment',file_id=file_id,attach=attachment)}}" enctype="multipart/form-data" method="POST"> 
+        <input type="file"   name="file" ><br><br>
+        <input type="submit" value="Upload a file"><br><br>
+        
+        </form>
+        </tr>
+        
+    </table>
+    </center>
+    </div>
+
+{% endblock %}
